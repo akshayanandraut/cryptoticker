@@ -39,7 +39,7 @@ function tickerKoinex(){
 			if (change>=0)
 				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">-'+(change)+'</span>';			
+				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
 			x+='<div class=""><h3>BTC/INR</h3></span><button class="col-sm-3 btn btn-primary">'+json.prices.BTC+'</button> '+c+'</div><br>';
 			
 			//ETH
@@ -48,7 +48,7 @@ function tickerKoinex(){
 			if (change>=0)
 				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">-'+(change)+'</span>';			
+				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
 			x+='<div class=""><h3>ETH/INR</h3></span><button class="col-sm-3 btn btn-primary">'+json.prices.ETH+'</button> '+c+'</div><br>';
 			
 			//BCH
@@ -57,7 +57,7 @@ function tickerKoinex(){
 			if (change>=0)
 				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">-'+(change)+'</span>';			
+				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
 			x+='<div class=""><h3>BCH/INR</h3><button class="col-sm-3 btn btn-primary">'+json.prices.BCH+'</button> '+c+'</div><br>';
 			
 			//XRP
@@ -66,7 +66,7 @@ function tickerKoinex(){
 			if (change>=0)
 				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">-'+(change)+'</span>';			
+				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
 			x+='<div class=""><h3>XRP/INR</h3><button class="col-sm-3 btn btn-primary">'+json.prices.XRP+'</button> '+c+'</div><br>';
 			//LTC
 			var change = json.prices.LTC - json.stats.LTC.last_traded_price;
@@ -74,7 +74,7 @@ function tickerKoinex(){
 			if (change>=0)
 				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">-'+(change)+'</span>';			
+				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
 			x+='<div class=""><h3>LTC/INR</h3><button class="col-sm-3 btn btn-primary">'+json.prices.LTC+'</button> '+c+'</div><br>';
 			
 			document.getElementById("display2").innerHTML = x;
