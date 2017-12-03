@@ -17,7 +17,7 @@ function tickerZebpay(){
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var json = JSON.parse(this.responseText);
-			var x = '<div class="container-fluid"><div class="well well-lg"><h2 style="color:#359AF2;">ZEBPAY BTC</h2><button class="col-sm-3 btn btn-primary">MARKET: '+json.market+' INR</button><button class="col-sm-3 btn btn-success">BUY: '+json.buy+' INR</button><button class="col-sm-3 btn btn-danger">SELL: '+json.sell+' INR</button><button class="col-sm-3 btn btn-warning">DIFF: '+(json.buy - json.sell)+' INR</button></div></div>';
+			var x = '<div class="container-fluid well well-lg"><div class=""><h2 style="color:#359AF2;">ZEBPAY BTC</h2><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-success">BUY: '+json.buy+' INR</label><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-danger">SELL: '+json.sell+' INR</label><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-primary">MARKET: '+json.market+' INR</label><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-warning">DIFF: '+(json.buy - json.sell)+' INR</label></div></div>';
 			document.getElementById("display1").innerHTML = x;
 		}
 	};
@@ -31,51 +31,51 @@ function tickerKoinex(){
 		if (this.readyState == 4 && this.status == 200) {
 			var json = JSON.parse(this.responseText);
 			console.log(change);
-			var x = '<div class="container-fluid"><br><div class="well well-lg" style=""><h2 style="color:#0C6EB5;">KOINEX</h2>';
+			var x = '<div class="row container-fluid"><div class="well well-lg" style=""><h2 style="color:#0C6EB5;">KOINEX</h2>';
 
 			//BTC
 			var change = json.prices.BTC - json.stats.BTC.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
-			x+='<div class=""><h3>BTC/INR</h3></span><button class="col-sm-3 btn btn-primary">'+json.prices.BTC+'</button> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>BTC/INR</h4></span><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4  label label-primary">'+json.prices.BTC+'</label> '+c+'</div><br>';
 			
 			//ETH
 			var change = json.prices.ETH - json.stats.ETH.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
-			x+='<div class=""><h3>ETH/INR</h3></span><button class="col-sm-3 btn btn-primary">'+json.prices.ETH+'</button> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>ETH/INR</h4></span><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4  label label-primary">'+json.prices.ETH+'</label> '+c+'</div><br>';
 			
 			//BCH
 			var change = json.prices.BCH - json.stats.BCH.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
-			x+='<div class=""><h3>BCH/INR</h3><button class="col-sm-3 btn btn-primary">'+json.prices.BCH+'</button> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>BCH/INR</h4><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4  label label-primary">'+json.prices.BCH+'</label> '+c+'</div><br>';
 			
 			//XRP
 			var change = json.prices.XRP - json.stats.XRP.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
-			x+='<div class=""><h3>XRP/INR</h3><button class="col-sm-3 btn btn-primary">'+json.prices.XRP+'</button> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>XRP/INR</h4><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4  label label-primary">'+json.prices.XRP+'</label> '+c+'</div><br>';
 			//LTC
 			var change = json.prices.LTC - json.stats.LTC.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<button class="col-sm-2 btn btn-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
 			else
-				c = '<button class="col-sm-2 btn btn-danger">'+(change)+'</span>';			
-			x+='<div class=""><h3>LTC/INR</h3><button class="col-sm-3 btn btn-primary">'+json.prices.LTC+'</button> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>LTC/INR</h4><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 label label-primary">'+json.prices.LTC+'</label> '+c+'</div><br>';
 			
 			document.getElementById("display2").innerHTML = x;
 		}
@@ -86,13 +86,38 @@ function tickerKoinex(){
 </script>
 </head>
 <body>
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<div class="btcwdgt-price" bw-cur="inr"></div>
+</div>
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+<div class="btcwdgt-price" bw-cur="inr" bw-cash="true"></div>
+</div>
+</div>
+<!--div class="btcwdgt-chart pull-right" bw-cur="inr"></div-->
+
+
+<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
 <div id="display2" class="display2"></div>
+</div>
+<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
 <div id="display1" class="display1"></div>
+</div>
+
 
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script>
+  (function(b,i,t,C,O,I,N) {
+    window.addEventListener('load',function() {
+      if(b.getElementById(C))return;
+      I=b.createElement(i),N=b.getElementsByTagName(i)[0];
+      I.src=t;I.id=C;N.parentNode.insertBefore(I, N);
+    },false)
+  })(document,'script','https://widgets.bitcoin.com/widget.js','btcwdgt');
+</script>
+
 </body>
 </html>
-
