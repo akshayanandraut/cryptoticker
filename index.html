@@ -17,7 +17,7 @@ function tickerZebpay(){
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var json = JSON.parse(this.responseText);
-			var x = '<div class="container-fluid well well-lg"><div class=""><h2 style="color:#359AF2;">ZEBPAY BTC</h2><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-success">BUY: '+json.buy+' INR</label><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-danger">SELL: '+json.sell+' INR</label><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-primary">MARKET: '+json.market+' INR</label><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-warning">DIFF: '+(json.buy - json.sell)+' INR</label></div></div>';
+			var x = '<div class="container-fluid well well-lg"><div class=""><h2 style="color:#359AF2;">ZEBPAY BTC</h2><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-success">'+json.buy+' INR</label><label class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 label label-danger">'+json.sell+' INR</label><label class="col-xs-6 col-sm-6 col-md-6 col-lg-6 label label-primary">'+json.market+' INR</label><label class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1  label label-warning">'+(json.buy - json.sell)+' INR</label></div></div>';
 			document.getElementById("display1").innerHTML = x;
 		}
 	};
@@ -37,45 +37,45 @@ function tickerKoinex(){
 			var change = json.prices.BTC - json.stats.BTC.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1   label label-success">+'+(change)+'</span>';
 			else
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
-			x+='<div class=""><h4>BTC/INR</h4></span><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4  label label-primary">'+json.prices.BTC+'</label> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1   label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>BTC/INR</h4></span><label class="col-xs-8 col-sm-8 col-md-8 col-lg-8  label label-primary">'+json.prices.BTC+'</label> '+c+'</div><br>';
 			
 			//ETH
 			var change = json.prices.ETH - json.stats.ETH.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1   label label-success">+'+(change)+'</span>';
 			else
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
-			x+='<div class=""><h4>ETH/INR</h4></span><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4  label label-primary">'+json.prices.ETH+'</label> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3   col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1  label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>ETH/INR</h4></span><label class="col-xs-8 col-sm-8 col-md-8 col-lg-8  label label-primary">'+json.prices.ETH+'</label> '+c+'</div><br>';
 			
 			//BCH
 			var change = json.prices.BCH - json.stats.BCH.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1   label label-success">+'+(change)+'</span>';
 			else
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
-			x+='<div class=""><h4>BCH/INR</h4><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4  label label-primary">'+json.prices.BCH+'</label> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3   col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1  label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>BCH/INR</h4><label class="col-xs-8 col-sm-8 col-md-8 col-lg-8  label label-primary">'+json.prices.BCH+'</label> '+c+'</div><br>';
 			
 			//XRP
 			var change = json.prices.XRP - json.stats.XRP.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3   col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1  label label-success">+'+(change)+'</span>';
 			else
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
-			x+='<div class=""><h4>XRP/INR</h4><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4  label label-primary">'+json.prices.XRP+'</label> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1   label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>XRP/INR</h4><label class="col-xs-8 col-sm-8 col-md-8 col-lg-8  label label-primary">'+json.prices.XRP+'</label> '+c+'</div><br>';
 			//LTC
 			var change = json.prices.LTC - json.stats.LTC.last_traded_price;
 			console.log(change);
 			if (change>=0)
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-success">+'+(change)+'</span>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1  label label-success">+'+(change)+'</span>';
 			else
-				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3 label label-danger">'+(change)+'</span>';			
-			x+='<div class=""><h4>LTC/INR</h4><label class="col-xs-4 col-sm-4 col-md-4 col-lg-4 label label-primary">'+json.prices.LTC+'</label> '+c+'</div><br>';
+				c = '<label class="col-xs-3 col-sm-3 col-md-3 col-lg-3  col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1  label label-danger">'+(change)+'</span>';			
+			x+='<div class=""><h4>LTC/INR</h4><label class="col-xs-8 col-sm-8 col-md-8 col-lg-8 label label-primary">'+json.prices.LTC+'</label> '+c+'</div><br>';
 			
 			document.getElementById("display2").innerHTML = x;
 		}
@@ -121,3 +121,4 @@ function tickerKoinex(){
 
 </body>
 </html>
+
